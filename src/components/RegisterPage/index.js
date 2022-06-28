@@ -13,7 +13,7 @@ export default function RegisterPage() {
                     <span>Cadastrar</span>
                 </button>
             </form>
-            <span>Já tem uma conta? Entre agora!</span>
+            <span>Já tem uma conta? Entre agora! </span>
             
         </Container>
     )

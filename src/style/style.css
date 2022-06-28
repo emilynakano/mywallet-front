@@ -9,3 +9,11 @@ h1 {
     font-size: 32px;
     color: #FFFFFF;
 }
+h2 {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-size: 26px;
+    line-height: 31px;
+}
