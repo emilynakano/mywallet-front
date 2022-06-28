@@ -30,6 +30,11 @@ const Container = styled.div `
             padding: 18px;
             border: none;
             border-radius: 2px;
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 23px;
         }
         input::placeholder {
             font-family: 'Raleway';
