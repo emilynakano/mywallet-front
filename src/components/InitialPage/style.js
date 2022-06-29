@@ -28,8 +28,11 @@ const Container = styled.div `
     .exit {
         color: #FFFFFF !important;
         font-size: 22px !important;
+        &:hover{
+            cursor: pointer;
+        }
     }
-    .register {
+    .withoutRegister {
         background-color: white;
         width:100%;
         height:60vh;
@@ -39,6 +42,44 @@ const Container = styled.div `
         padding: 0 10vh;
         text-align:center;
         border-radius:5px;
+    }
+    .withRegister {
+        padding: 2vh;
+        padding-bottom:0;
+        background-color: white;
+        width:100%;
+        height:60vh;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+        .registers {
+            div{
+                display:flex;
+                justify-content:space-between;
+            }
+        }
+        h3 {
+            font-size: 16px;
+        }
+        .description {
+            color: #000000;
+        }
+        .value.exitr {
+            color: #C70000;
+        }
+        .value.add {
+            color: #03AC00;
+        }
+        .saldo {
+            display:flex;
+            justify-content:space-between;
+            h2 {
+                font-weight: 700;
+                color: #000000;
+                font-size: 17px;
+            }
+        }
+        
     }
     .buttons {
         width:100%;
@@ -54,6 +95,9 @@ const Container = styled.div `
             display:flex;
             flex-direction:column;
             justify-content: space-between;
+            &:hover{
+                cursor: pointer;
+            }
         }
         h3 {
             color: #FFFFFF;
@@ -67,7 +111,9 @@ const Container = styled.div `
         }
 
     }
-    
+    .escondido {
+        display: none;
+    }
     
 `
 export {Container}

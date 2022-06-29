@@ -40,6 +40,9 @@ const Container = styled.div `
         background-color: #A328D6;
         border:none;
         border-radius:5px;
+        &:hover{
+            cursor: pointer;
+        }
     }
     span {
         font-family: 'Raleway';

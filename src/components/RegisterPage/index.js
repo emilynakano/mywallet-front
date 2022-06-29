@@ -1,6 +1,7 @@
 import { Container } from "../LoginPage/style"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 export default function RegisterPage() {
     const navigate = useNavigate()
@@ -13,9 +14,15 @@ export default function RegisterPage() {
     function ChangeInput(e) {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
-    function Login (e) {
+    function Register (e) {
         e.preventDefault()
-        navigate('/')
+        const promise = axios.post("http://localhost:5000/sign-up", {...user});
+        promise.then(() => {
+            navigate('/')
+        })
+        promise.catch(() => {
+            console.log("err")
+        })
     }
     return (
         <Container>
@@ -25,7 +32,7 @@ export default function RegisterPage() {
                 <input type="email" placeholder="Email" name="email" value={user.email} onChange={ChangeInput}/>
                 <input type="password" placeholder="Senha" name="password" value={user.password} onChange={ChangeInput}/>
                 <input type="password" placeholder="Confirme a senha" name="checkPassword" value={user.checkPassword} onChange={ChangeInput}/>
-                <button onClick={Login} type="submit">
+                <button onClick={Register} type="submit">
                     <span>Cadastrar</span>
                 </button>
             </form>

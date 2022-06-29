@@ -5,7 +5,7 @@ export default function AddRegisterPage () {
     const navigate = useNavigate()
     const [entrada, setEntrada] = useState({
         value: '',
-        descrition: ''
+        description: ''
     })
     function ChangeInput (e) {
         setEntrada({...entrada, [e.target.name]: e.target.value})
@@ -19,7 +19,7 @@ export default function AddRegisterPage () {
             <h2>Nova entrada</h2>
             <form >
                 <input type="number" placeholder="Valor" name="value" value={entrada.value} onChange={ChangeInput}/>
-                <input type="text" placeholder="Descrição" name="descrition" value={entrada.descrition} onChange={ChangeInput}/>
+                <input type="text" placeholder="Descrição" name="description" value={entrada.description} onChange={ChangeInput}/>
                 <button onClick={Save} type="submit">
                     <span>Salvar entrada</span>
                 </button>

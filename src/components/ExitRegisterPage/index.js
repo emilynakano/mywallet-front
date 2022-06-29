@@ -5,7 +5,7 @@ export default function RemoveRegisterPage () {
     const navigate = useNavigate()
     const [exit, setExit] = useState({
         value:'',
-        descrition: ''
+        description: ''
     })
     function ChangeInput (e) {
         setExit({...exit, [e.target.name]: e.target.value})
@@ -19,7 +19,7 @@ export default function RemoveRegisterPage () {
             <h2>Nova saída</h2>
             <form >
                 <input type="number" placeholder="Valor" name="value" value={exit.value} onChange={ChangeInput}/>
-                <input type="text" placeholder="Descrição" name='descrition' value={exit.descrition} onChange={ChangeInput}/>
+                <input type="text" placeholder="Descrição" name='description' value={exit.description} onChange={ChangeInput}/>
                 <button type='submit' onClick={Save}>
                     <span>Salvar saída</span>
                 </button>

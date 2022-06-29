@@ -14,7 +14,10 @@ const Container = styled.div `
         font-weight: 700;
         font-size: 15px;
         line-height: 23px;
-        color: #ffffff
+        color: #ffffff;
+        &:hover{
+            cursor: pointer;
+        }
     }
     form {
         width: 100%;
@@ -49,6 +52,9 @@ const Container = styled.div `
             font-size: 10px;
             span {
                 font-size:20px;
+            }
+            &:hover{
+                cursor: pointer;
             }
         }
         
