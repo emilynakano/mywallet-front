@@ -1,6 +1,7 @@
 import { Container } from './style'
 import { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
+import axios from 'axios';
 
 export default function LoginPage() {
     const navigate = useNavigate();
@@ -10,7 +11,14 @@ export default function LoginPage() {
     });
     function Login (e) {
         e.preventDefault();
-        navigate('/home')
+        const promise = axios.post("http://localhost:5000/sign-in", {...userLogin});
+        promise
+        .then(() => {
+            navigate('/home')
+        })
+        .catch(() => {
+            alert("preencha os campos corretamente!")
+        })
     }
     function ChangeInput (e) {
         setUserLogin({...userLogin, [e.target.name]: e.target.value})

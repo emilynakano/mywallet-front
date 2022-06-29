@@ -17,11 +17,12 @@ export default function RegisterPage() {
     function Register (e) {
         e.preventDefault()
         const promise = axios.post("http://localhost:5000/sign-up", {...user});
-        promise.then(() => {
+        promise
+        .then(() => {
             navigate('/')
         })
-        promise.catch(() => {
-            console.log("err")
+        .catch(() => {
+            alert("preencha todos os campos corretamente!")
         })
     }
     return (
