@@ -1,9 +1,11 @@
 import { Container } from './style'
-import { useState } from 'react'
+import { useContext, useState, React } from 'react'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
+import UserContext from '../../contexts/UserContext'
 
 export default function LoginPage() {
+    const { setUser } = useContext(UserContext);
     const navigate = useNavigate();
     const [userLogin, setUserLogin] = useState({
         email:'',
@@ -13,7 +15,8 @@ export default function LoginPage() {
         e.preventDefault();
         const promise = axios.post("http://localhost:5000/sign-in", {...userLogin});
         promise
-        .then(() => {
+        .then((res) => {
+            setUser(res.data);
             navigate('/home')
         })
         .catch(() => {
