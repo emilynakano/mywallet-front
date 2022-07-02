@@ -1,7 +1,7 @@
 import { Container } from "./style"
 import { useNavigate } from "react-router-dom"
 import UserContext from "../../contexts/UserContext"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState, React } from "react"
 import axios from "axios"
 
 export default function InitialPage () {
@@ -17,9 +17,9 @@ export default function InitialPage () {
         }
         const promise = axios.get("http://localhost:5000/post", config);
         promise.then(res => setRegistration(res.data));
-    },)
+    }, )
     let sale = 0;
-    
+
     for(let i = 0; i < registration.length; i ++) {
         if(registration[i].type === 'add') {
             sale = sale + Number(registration[i].value);

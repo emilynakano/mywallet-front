@@ -40,6 +40,12 @@ const Container = styled.div `
         background-color: #A328D6;
         border:none;
         border-radius:5px;
+        display: flex;
+        flex-direction: center;
+        align-items: center;
+        .loader, span {
+            margin: 0 auto;
+        } 
         &:hover{
             cursor: pointer;
         }

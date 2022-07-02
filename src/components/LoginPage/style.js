@@ -8,6 +8,7 @@ const Container = styled.div `
 
     display: flex;
     flex-direction: column;
+   
     span {
         font-family: 'Raleway';
         font-style: normal;
@@ -50,7 +51,14 @@ const Container = styled.div `
         button {
             background-color: #A328D6;
             font-size: 10px;
+            display:flex;
+            flex-direction: center;
+            align-items:center;
+            .loader {
+                margin: 0 auto;
+            }
             span {
+                margin: 0 auto;
                 font-size:20px;
             }
             &:hover{

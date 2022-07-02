@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import UserContext from '../../contexts/UserContext'
 import axios from 'axios'
+import * as Loader from 'react-loader-spinner'
 
 export default function RemoveRegisterPage () {
+    const [loading, setLoading] = useState(false)
     const {user} = useContext(UserContext)
     const navigate = useNavigate()
     const [output, setOutput] = useState({
@@ -17,6 +19,7 @@ export default function RemoveRegisterPage () {
     }
     function HandleSubmit(e) {
         e.preventDefault();
+        setLoading(true)
         const config = {
             headers: {
                 Authorization: `Bearer ${user.token}`
@@ -24,6 +27,10 @@ export default function RemoveRegisterPage () {
         }
         const promise = axios.post('http://localhost:5000/post', {...output, type: 'exit'}, config);
         promise.then(() => navigate('/home'));
+        promise.catch(() => {
+            alert("preencha os dados corretamente")
+            setLoading(false)
+        })
     }
     return (
         <Container>
@@ -32,7 +39,17 @@ export default function RemoveRegisterPage () {
                 <input type="number" placeholder="Valor" name="value" value={output.value} onChange={ChangeInput}/>
                 <input type="text" placeholder="Descrição" name='description' value={output.description} onChange={ChangeInput}/>
                 <button type='submit' onClick={HandleSubmit}>
-                    <span>Salvar saída</span>
+                    {loading ? 
+                        <div className="loader">
+                            <Loader.ThreeDots
+                                color="white"
+                                height={70}
+                                width={70}
+                                timeout={3000}
+                            />
+                        </div>
+                        :
+                        <span>Salvar entrada</span>}
                 </button>
             </form>
         </Container>
