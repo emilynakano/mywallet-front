@@ -4,7 +4,6 @@ const Container = styled.div `
     flex-direction: column;
 
     align-items: center;
-
     height: 100vh;
     padding: 25px;
     gap: 22px;
@@ -53,6 +52,7 @@ const Container = styled.div `
         flex-direction:column;
         justify-content:space-between;
         .registers {
+            overflow:  auto;
             div{
                 display:flex;
                 justify-content:space-between;
@@ -113,6 +113,13 @@ const Container = styled.div `
     }
     .escondido {
         display: none;
+    }
+    @media(max-width: 614px) {
+        .registers {
+            ::-webkit-scrollbar {
+                width: 0px;
+            }
+        }
     }
     
 `

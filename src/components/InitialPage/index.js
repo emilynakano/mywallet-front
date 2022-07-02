@@ -8,6 +8,7 @@ export default function InitialPage () {
     const {user} = useContext(UserContext);
     const [registration, setRegistration] = useState([])
     const navigate = useNavigate();
+
     useEffect(() => {
         const config = {
             headers: {
@@ -17,6 +18,16 @@ export default function InitialPage () {
         const promise = axios.get("http://localhost:5000/post", config);
         promise.then(res => setRegistration(res.data));
     },)
+    let sale = 0;
+    
+    for(let i = 0; i < registration.length; i ++) {
+        if(registration[i].type === 'add') {
+            sale = sale + Number(registration[i].value);
+        } else {
+            sale = sale - Number(registration[i].value);
+        }
+    }
+    
     return (
         <Container>
             <header>
@@ -36,9 +47,10 @@ export default function InitialPage () {
                     </div>
                     )}
                 </div>
-                <div className="saldo">
-                    <h2>SALDO</h2>
-                    <h3 className="value exitr">54,90</h3>
+                <div className="sale">
+                    <h2>sale</h2>
+                    {sale < 0 ? <h3 className="value exitr">{sale * -1}</h3> : <h3 className="value add">{sale}</h3>}
+                    
                 </div>
             </div>
             <div className="buttons">
