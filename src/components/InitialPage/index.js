@@ -15,7 +15,7 @@ export default function InitialPage () {
                 Authorization: `Bearer ${user.token}`
             }
         }
-        const promise = axios.get("http://localhost:5000/post", config);
+        const promise = axios.get("https://projeto-mywallett.herokuapp.com/post", config);
         promise.then(res => setRegistration(res.data));
     }, )
     let sale = 0;
@@ -47,8 +47,8 @@ export default function InitialPage () {
                     </div>
                     )}
                 </div>
-                <div className="sale">
-                    <h2>sale</h2>
+                <div className="saldo">
+                    <h2>SALDO</h2>
                     {sale < 0 ? <h3 className="value exitr">{sale * -1}</h3> : <h3 className="value add">{sale}</h3>}
                     
                 </div>

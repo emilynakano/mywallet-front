@@ -16,7 +16,7 @@ export default function LoginPage() {
     function Login (e) {
         e.preventDefault();
         setLoading(true)
-        const promise = axios.post("http://localhost:5000/sign-in", {...userLogin});
+        const promise = axios.post("https://projeto-mywallett.herokuapp.com/sign-in", {...userLogin});
         promise
         .then((res) => {
             setUser(res.data);

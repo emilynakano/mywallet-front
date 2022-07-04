@@ -25,7 +25,7 @@ export default function RemoveRegisterPage () {
                 Authorization: `Bearer ${user.token}`
             }
         }
-        const promise = axios.post('http://localhost:5000/post', {...output, type: 'exit'}, config);
+        const promise = axios.post('https://projeto-mywallett.herokuapp.com/post', {...output, type: 'exit'}, config);
         promise.then(() => navigate('/home'));
         promise.catch(() => {
             alert("preencha os dados corretamente")

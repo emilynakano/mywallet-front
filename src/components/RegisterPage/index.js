@@ -19,7 +19,7 @@ export default function RegisterPage() {
     function Register (e) {
         e.preventDefault()
         setLoading(true)
-        const promise = axios.post("http://localhost:5000/sign-up", {...user});
+        const promise = axios.post("https://projeto-mywallett.herokuapp.com/sign-up", {...user});
         promise
         .then(() => {
             navigate('/')

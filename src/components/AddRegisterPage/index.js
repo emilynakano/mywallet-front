@@ -26,7 +26,7 @@ export default function AddRegisterPage () {
                 Authorization: `Bearer ${user.token}`
             }
         }
-        const promise = axios.post('http://localhost:5000/post', {...input, type: 'add'}, config);
+        const promise = axios.post('https://projeto-mywallett.herokuapp.com/post', {...input, type: 'add'}, config);
         promise.then(() => navigate('/home'));
         promise.catch(() => {
             setLoading(false)
